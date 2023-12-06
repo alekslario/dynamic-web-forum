@@ -1,4 +1,4 @@
-CREATE TABLE topics (
+CREATE TABLE IF NOT EXISTS topics (
     topic_id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     details TEXT

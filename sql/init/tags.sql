@@ -1,4 +1,4 @@
-CREATE TABLE tags (
+CREATE TABLE IF NOT EXISTS tags (
     tag_id INT PRIMARY KEY AUTO_INCREMENT,
     tag_name VARCHAR(50) NOT NULL,
     post_id INT,
