@@ -78,7 +78,7 @@ module.exports = function (app, shopData) {
                           res.status(500).send("Error adding new post");
                         } else {
                           // Redirect the user back to the list of posts
-                          res.redirect("/posts");
+                          res.redirect("https://www.doc.gold.ac.uk/usr/454/posts");
                         }
                       }
                     );
@@ -126,7 +126,7 @@ module.exports = function (app, shopData) {
                   res.status(500).send("Error adding new reply");
                 } else {
                   // Redirect the user back to the post or wherever you prefer
-                  res.redirect(`/post?post_id=${post_id}`);
+                  res.redirect(`https://www.doc.gold.ac.uk/usr/454/post?post_id=${post_id}`);
                 }
               }
             );
@@ -142,7 +142,7 @@ module.exports = function (app, shopData) {
     let sqlquery = "SELECT * FROM users"; // query database to get all the books // execute sql query
     db.query(sqlquery, (err, result) => {
       if (err) {
-        res.redirect("./");
+        res.redirect("https://www.doc.gold.ac.uk/usr/454/");
       }
       res.render("users.ejs", { users: result });
     });
@@ -213,7 +213,7 @@ module.exports = function (app, shopData) {
     `; // query database to get all the books // execute sql query
     db.query(sqlquery, (err, result) => {
       if (err) {
-        res.redirect("./");
+        res.redirect("https://www.doc.gold.ac.uk/usr/454/");
       }
       res.render("posts.ejs", { posts: result });
     });
@@ -230,7 +230,7 @@ module.exports = function (app, shopData) {
         console.error(err);
         res.status(500).send("Error deleting the post");
       } else {
-        res.redirect("/posts");
+        res.redirect("https://www.doc.gold.ac.uk/usr/454/posts");
       }
     });
   });
@@ -240,7 +240,7 @@ module.exports = function (app, shopData) {
     db.query(sqlquery, (err, result) => {
       if (err) {
         console.error(err);
-        res.redirect("./");
+        res.redirect("https://www.doc.gold.ac.uk/usr/454/");
       } else {
         res.render("topics.ejs", { topics: result });
       }
@@ -263,7 +263,7 @@ module.exports = function (app, shopData) {
     db.query(sqlquery, [topicId], (err, result) => {
       if (err) {
         console.error(err);
-        res.redirect("/");
+        res.redirect("https://www.doc.gold.ac.uk/usr/454/");
       } else {
         // Assuming result is an array with the topic details
         const topicDetails = result;
@@ -317,7 +317,7 @@ module.exports = function (app, shopData) {
                           res.status(500).send("Error joining topic");
                         } else {
                           // Redirect the user back to the topic or wherever you prefer
-                          res.redirect(`/topic?topic_id=${topic_id}`);
+                          res.redirect(`https://www.doc.gold.ac.uk/usr/454/topic?topic_id=${topic_id}`);
                         }
                       }
                     );
@@ -356,7 +356,7 @@ module.exports = function (app, shopData) {
         res.status(500).send("Error registering user");
       } else {
         // Redirect the user to the users page after successful registration
-        res.redirect("/users");
+        res.redirect("https://www.doc.gold.ac.uk/usr/454/users");
       }
     });
   });
