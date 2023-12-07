@@ -1,0 +1,96 @@
+/* Body styling */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  max-width: 1200px;
+  margin: 20px 40px;
+}
+
+/* Heading styling */
+h1,
+h2 {
+  color: #3498db;
+}
+
+/* Link styling */
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2077b4;
+}
+
+/* Button styling */
+button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2077b4;
+}
+
+/* Input styling */
+input,
+textarea {
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Container styling */
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navigation styling */
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #3498db;
+}
+
+/* Textarea styling */
+textarea {
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Set a minimum height */
+  font-family: "Arial", sans-serif;
+}
+
+.column {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  flex-direction: column;
+}

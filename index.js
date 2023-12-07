@@ -2,13 +2,13 @@
 var express = require("express");
 var ejs = require("ejs");
 var bodyParser = require("body-parser");
-var mysql = require("mysql");
+var mysql = require("mysql2");
 
 const db = mysql.createConnection({
   host: "localhost",
   user: "alari001",
-  password: "123",
-  database: "myBookshop",
+  password: "1234",
+  database: "forum",
 });
 db.connect((err) => {
   if (err) {

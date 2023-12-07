@@ -1,0 +1,58 @@
+<!-- topic.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= topicDetails[0].title %> - Topic</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= topicDetails[0].title %></h1>
+
+      <% if (topicDetails.length > 0) { %>
+      <div class="topic-details">
+        <p><strong>Details:</strong> <%= topicDetails[0].details %></p>
+        <p>
+          <strong>Additional Information:</strong>
+          <%= topicDetails[0].some_text %>
+        </p>
+
+        <!-- Form to join the topic -->
+        <form action="/topic_callback" method="post">
+          <input
+            type="hidden"
+            name="topic_id"
+            value="<%= topicDetails[0].topic_id %>"
+          />
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit">Join Topic</button>
+        </form>
+
+        <!-- Display current members -->
+        <h2>Current Members</h2>
+        <% if (usernames && usernames.length > 0) { %>
+        <ul class="member-list">
+          <% usernames.forEach(username => { %>
+          <li><%= username %></li>
+          <% }); %>
+        </ul>
+        <% } else { %>
+        <p>No members yet.</p>
+        <% } %>
+      </div>
+      <% } else { %>
+      <p>Topic not found.</p>
+      <% } %>
+
+      <a href="/topics">Back to Topics</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!-- post.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= postDetails.post_title %> - Post</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= postDetails.post_title %></h1>
+
+      <% if (postDetails) { %>
+      <div class="post-details">
+        <p><strong>Topic:</strong> <%= postDetails.topic_title %></p>
+        <p><strong>Author:</strong> <%= postDetails.author.username %></p>
+        <p><strong>Content:</strong> <%= postDetails.content %></p>
+        <p><strong>Created at:</strong> <%= postDetails.created_at %></p>
+      </div>
+
+      <!-- Button to delete the post -->
+      <form action="/delete_post" method="post">
+        <input
+          type="hidden"
+          name="post_id"
+          value="<%= postDetails.post_id %>"
+        />
+        <button type="submit" class="delete-button">Delete Post</button>
+      </form>
+
+      <% if (postDetails.replies.length > 0) { %>
+      <h2>Replies</h2>
+      <ul class="reply-list">
+        <% postDetails.replies.forEach(reply => { %>
+        <li>
+          <p><strong>Author:</strong> <%= reply.username %></p>
+          <p><strong>Content:</strong> <%= reply.content %></p>
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>No replies yet.</p>
+      <% } %>
+
+      <!-- Form to add a new reply -->
+      <h2>Add Reply</h2>
+      <form action="/add_reply_callback" method="post" class="column">
+        <input
+          type="hidden"
+          name="post_id"
+          value="<%= postDetails.post_id %>"
+        />
+
+        <!-- Input fields for username and password -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <!-- Input field for reply content -->
+        <label for="replyContent">Content:</label>
+        <textarea id="replyContent" name="content" rows="3" required></textarea>
+
+        <button type="submit">Add Reply</button>
+      </form>
+
+      <% } else { %>
+      <p>Post not found.</p>
+      <% } %>
+
+      <a href="/posts">Back to Posts</a>
+    </div>
+  </body>
+</html>

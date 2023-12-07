@@ -1,0 +1,33 @@
+<!-- topics.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topics</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Topics</h1>
+
+      <% if (topics && topics.length > 0) { %>
+      <ul class="topic-list">
+        <% topics.forEach(topic => { %>
+        <li>
+          <h2>
+            <a href="/topic?topic_id=<%= topic.topic_id %>"
+              ><%= topic.title %></a
+            >
+          </h2>
+          <p><%= topic.details %></p>
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>No topics found.</p>
+      <% } %>
+    </div>
+  </body>
+</html>

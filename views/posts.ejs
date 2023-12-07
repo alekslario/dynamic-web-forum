@@ -1,0 +1,39 @@
+<!-- post.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Posts</h1>
+
+      <% if (posts && posts.length > 0) { %>
+      <ul class="post-list">
+        <% posts.forEach(post => { %>
+        <li>
+          <h2>
+            <a href="/post?post_id=<%= post.post_id %>"
+              ><%= post.post_title %></a
+            >
+          </h2>
+          <p><strong>Topic:</strong> <%= post.topic_title %></p>
+          <p><strong>Author:</strong> <%= post.username %></p>
+          <p><strong>Content:</strong> <%= post.content %></p>
+          <p><strong>Created at:</strong> <%= post.created_at %></p>
+          <p><strong>Replies:</strong> <%= post.reply_count %></p>
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>No posts found.</p>
+      <% } %>
+
+      <a href="/">Back to Home</a>
+    </div>
+  </body>
+</html>
