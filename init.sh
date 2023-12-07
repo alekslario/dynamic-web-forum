@@ -9,10 +9,10 @@ MAINDB="forum"
 # replace "-" with "_" for database username
 USER="alari001"
 #create database
-# CREATE USER ${USER}@localhost IDENTIFIED BY '${PASSWDDB}';
-sudo mysql <<MYSQL_SCRIPT
 
+sudo mysql <<MYSQL_SCRIPT
 CREATE DATABASE IF NOT EXISTS  ${MAINDB} /*\!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE USER ${USER}@localhost IDENTIFIED BY '${PASSWDDB}';
 GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${USER}'@'localhost';
 FLUSH PRIVILEGES;
 USE ${MAINDB};
