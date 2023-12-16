@@ -2,8 +2,10 @@
 var express = require("express");
 var ejs = require("ejs");
 var bodyParser = require("body-parser");
-var mysql = require("mysql2");
+var mysql = require("mysql");
 const cookieParser = require("cookie-parser");
+const local = false;
+const baseUrl = local ? "/" : "https://www.doc.gold.ac.uk/usr/454/";
 
 const db = mysql.createConnection({
   host: "localhost",

@@ -6,4 +6,5 @@ source sql/init/tags.sql
 source sql/init/users_topics.sql
 source sql/procedures/delete_post.sql
 source sql/views/post_summary_view.sql
+source sql/views/post_view.sql
 source insert_data.sql

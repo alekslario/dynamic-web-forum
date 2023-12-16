@@ -1,9 +1,7 @@
-const local = true;
-const baseUrl = local ? "/" : "https://www.doc.gold.ac.uk/usr/454/";
 const post = require("./post");
-module.exports = function (app, shopData) {
+module.exports = function (app, shopData, baseUrl) {
   // handle post routes
-  post(app, shopData);
+  post(app, shopData, baseUrl);
   // Handle our routes
   app.get("/", function (req, res) {
     res.render("index.ejs");

@@ -1,4 +1,4 @@
-module.exports = function (app, shopData) {
+module.exports = function (app, shopData, baseUrl) {
   app.get("/search_post", function (req, res) {
     res.render("search_post.ejs");
   });
@@ -35,31 +35,7 @@ module.exports = function (app, shopData) {
   app.get("/post", function (req, res) {
     const postId = req.query.post_id; // Assuming post_id is passed as a query parameter
 
-    let sqlquery = `
-        SELECT
-            posts.post_id,
-            posts.title AS post_title,
-            posts.content,
-            posts.created_at,
-            topics.title AS topic_title,
-            users.user_id AS author_id,
-            users.username AS author_username,
-            replies.user_id AS reply_user_id,
-            reply_users.username AS reply_username,
-            replies.content AS reply_content
-        FROM
-            posts
-        JOIN
-            topics ON posts.topic_id = topics.topic_id
-        JOIN
-            users ON posts.user_id = users.user_id
-        LEFT JOIN
-            replies ON posts.post_id = replies.post_id
-        LEFT JOIN
-            users AS reply_users ON replies.user_id = reply_users.user_id
-        WHERE
-            posts.post_id = ?;
-    `;
+    let sqlquery = `SELECT * FROM post_view WHERE post_id = ?;`;
 
     db.query(sqlquery, [postId], (err, result) => {
       if (err) {
