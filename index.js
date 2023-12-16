@@ -3,6 +3,7 @@ var express = require("express");
 var ejs = require("ejs");
 var bodyParser = require("body-parser");
 var mysql = require("mysql2");
+const cookieParser = require("cookie-parser");
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -22,7 +23,7 @@ global.db = db;
 const app = express();
 const port = 8000;
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cookieParser());
 // Set up css
 app.use(express.static(__dirname + "/public"));
 

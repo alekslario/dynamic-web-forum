@@ -1,11 +1,11 @@
-<!-- search_post.ejs -->
+<!-- users.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Posts</title>
+    <title>User List</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="js/check-login.js"></script>
   </head>
@@ -24,15 +24,24 @@
       </ul>
     </menu>
     <div class="container">
-      <a href="/">Back to Home</a>
-      <h1>Search Posts</h1>
+      <h1><%= username %></h1>
+      <p><strong>About: </strong><span><%= about %></span></p>
 
-      <form action="/search_post" method="post">
-        <label for="query">Search:</label>
-        <input type="text" id="query" name="query" required />
+      <% if (posts && posts.length > 0) { %>
+      <p><strong>Posts:</strong></p>
 
-        <button type="submit">Search</button>
-      </form>
+      <ul class="user-list">
+        <% posts.forEach(post => { %>
+        <li>
+          <a href="/post?post_id=<%= post.post_id %>">
+            <h2><%= post.title %></h2>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>No posts found.</p>
+      <% } %>
     </div>
     <footer>
       <!-- Your footer content goes here -->

@@ -7,9 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= topicDetails[0].title %> - Topic</title>
     <link rel="stylesheet" href="/styles.css" />
+    <script src="js/check-login.js"></script>
   </head>
   <body>
+    <menu>
+      <ul class="topnav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about">About Forum</a></li>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/add_post">Add Post</a></li>
+        <li><a href="/search_post">Search Post</a></li>
+        <li><a href="/topics">Topics</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login" id="loginButton">Log in</a></li>
+      </ul>
+    </menu>
     <div class="container">
+      <a href="/topics">Back to Topics</a>
       <h1><%= topicDetails[0].title %></h1>
 
       <% if (topicDetails.length > 0) { %>
@@ -27,11 +42,6 @@
             name="topic_id"
             value="<%= topicDetails[0].topic_id %>"
           />
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
 
           <button type="submit">Join Topic</button>
         </form>
@@ -41,18 +51,33 @@
         <% if (usernames && usernames.length > 0) { %>
         <ul class="member-list">
           <% usernames.forEach(username => { %>
-          <li><%= username %></li>
+          <a href="/user?username=<%= username %>"> <li><%= username %></li></a>
           <% }); %>
         </ul>
         <% } else { %>
         <p>No members yet.</p>
         <% } %>
+        <!-- Display current posts -->
+        <h2>Posts</h2>
+        <% if (posts && posts.length > 0) { %>
+        <ul class="member-list">
+          <% posts.forEach(post => { %>
+          <a href="/post?post_id=<%= post.post_id %>">
+            <li><%= post.title %></li></a
+          >
+          <% }); %>
+        </ul>
+        <% } else { %>
+        <p>No posts yet.</p>
+        <% } %>
       </div>
       <% } else { %>
       <p>Topic not found.</p>
       <% } %>
-
-      <a href="/topics">Back to Topics</a>
     </div>
+    <footer>
+      <!-- Your footer content goes here -->
+      &copy; Very important Forum
+    </footer>
   </body>
 </html>

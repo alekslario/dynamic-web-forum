@@ -1,11 +1,11 @@
-<!-- search_post.ejs -->
+<!-- register.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Posts</title>
+    <title>User Registration</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="js/check-login.js"></script>
   </head>
@@ -24,14 +24,16 @@
       </ul>
     </menu>
     <div class="container">
-      <a href="/">Back to Home</a>
-      <h1>Search Posts</h1>
+      <h1>User Log in</h1>
+      <h2>Don't have an account? Register <a href="/register">here</a></h2>
 
-      <form action="/search_post" method="post">
-        <label for="query">Search:</label>
-        <input type="text" id="query" name="query" required />
+      <form action="/login_callback" method="post" class="column">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
 
-        <button type="submit">Search</button>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Login</button>
       </form>
     </div>
     <footer>

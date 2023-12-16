@@ -7,17 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= postDetails.post_title %> - Post</title>
     <link rel="stylesheet" href="/styles.css" />
+    <script src="js/check-login.js"></script>
   </head>
   <body>
+    <menu>
+      <ul class="topnav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about">About Forum</a></li>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/add_post">Add Post</a></li>
+        <li><a href="/search_post">Search Post</a></li>
+        <li><a href="/topics">Topics</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login" id="loginButton">Log in</a></li>
+      </ul>
+    </menu>
     <div class="container">
+      <a href="/posts">Back to Posts</a>
       <h1><%= postDetails.post_title %></h1>
 
       <% if (postDetails) { %>
       <div class="post-details">
         <p><strong>Topic:</strong> <%= postDetails.topic_title %></p>
-        <p><strong>Author:</strong> <%= postDetails.author.username %></p>
-        <p><strong>Content:</strong> <%= postDetails.content %></p>
+
+        <p>
+          <strong>Author:</strong>
+          <a href="/user?username=<%= postDetails.author.username %>"
+            ><span><%= postDetails.author.username %></span></a
+          >
+        </p>
+        <p><%= postDetails.content %></p>
         <p><strong>Created at:</strong> <%= postDetails.created_at %></p>
+        <div class="tags row">
+          <% if (postDetails.tags.length > 0) { %>
+          <span><strong>Tags:</strong></span>
+          <ul class="row">
+            <% postDetails.tags.forEach(tag => { %>
+            <li class="tag">
+              <span> <%= tag %></span>
+            </li>
+            <% }); %>
+          </ul>
+          <% } else { %>
+          <p>No tags</p>
+          <% } %>
+        </div>
       </div>
 
       <!-- Button to delete the post -->
@@ -35,8 +70,13 @@
       <ul class="reply-list">
         <% postDetails.replies.forEach(reply => { %>
         <li>
-          <p><strong>Author:</strong> <%= reply.username %></p>
-          <p><strong>Content:</strong> <%= reply.content %></p>
+          <p>
+            <a href="/user?username=<%= reply.username %>"
+              ><strong><%= reply.username %>:</strong></a
+            >
+
+            <span> <%= reply.content %></span>
+          </p>
         </li>
         <% }); %>
       </ul>
@@ -45,23 +85,16 @@
       <% } %>
 
       <!-- Form to add a new reply -->
-      <h2>Add Reply</h2>
       <form action="/add_reply_callback" method="post" class="column">
         <input
           type="hidden"
           name="post_id"
           value="<%= postDetails.post_id %>"
         />
-
         <!-- Input fields for username and password -->
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
 
         <!-- Input field for reply content -->
-        <label for="replyContent">Content:</label>
+        <label for="replyContent"></label>
         <textarea id="replyContent" name="content" rows="3" required></textarea>
 
         <button type="submit">Add Reply</button>
@@ -70,8 +103,10 @@
       <% } else { %>
       <p>Post not found.</p>
       <% } %>
-
-      <a href="/posts">Back to Posts</a>
     </div>
+    <footer>
+      <!-- Your footer content goes here -->
+      &copy; Very important Forum
+    </footer>
   </body>
 </html>

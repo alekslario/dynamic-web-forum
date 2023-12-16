@@ -44,13 +44,19 @@ INSERT INTO users_topics (user_id, topic_id) VALUES
     (4, 4),
     (5, 5);
 
--- Add dummy posts
+-- Add dummy posts with longer content
 INSERT INTO posts (user_id, topic_id, title, content) VALUES
-    (1, 1, 'Building Responsive Websites', 'Tips and tricks for creating responsive web designs.'),
-    (2, 2, 'Exploring Watercolor Techniques', 'Share your favorite watercolor techniques and artworks.'),
-    (3, 3, 'Backpacking Through Southeast Asia', 'Share your travel adventures and recommendations.'),
-    (4, 4, 'Favorite RPG Games', 'Discuss your favorite role-playing games and gaming experiences.'),
-    (5, 5, 'High-Protein Recipes', 'Share your favorite recipes for a healthy and protein-rich diet.');
+    (1, 1, 'Building Responsive Websites', "In this comprehensive guide, we will explore the art and science of building responsive websites that seamlessly adapt to a diverse range of devices and screen sizes. Navigating the ever-evolving landscape of web development, we'll delve into the latest CSS and JavaScript techniques. From media queries to flexible grids, discover best practices for crafting user interfaces that provide an optimal viewing experience. Share your insights, challenges, and success stories in the dynamic world of responsive web design. Whether you are a seasoned developer or just getting started, join the conversation and contribute to the collective knowledge of the web development community."),
+
+    (2, 2, 'Exploring Watercolor Techniques', "Calling all watercolor enthusiasts! Embark on a creative journey as we explore an array of watercolor techniques to elevate your artistic expression. From the magical dance of wet-on-wet blending to the intricate details achievable with dry brush techniques, we'll cover the full spectrum of possibilities. Share your favorite watercolor artworks and the stories behind each piece. Whether you're an experienced watercolorist or a curious beginner, this is the perfect space to exchange ideas, tips, and techniques. Let's create a vibrant community where the beauty of watercolor unfolds in every stroke."),
+
+    (3, 3, 'Backpacking Through Southeast Asia', "Join fellow adventurers as we embark on an immersive exploration of backpacking through the enchanting landscapes of Southeast Asia. This virtual expedition will traverse bustling city streets, lush jungles, and serene beaches. Share your most cherished travel anecdotes, hidden gems, and must-visit destinations. Whether you're a seasoned backpacker with a wealth of experiences or a dreamer planning your first trip, contribute to our collective travelogue. From cultural encounters to culinary delights, let's create a tapestry of memories that inspires wanderlust and guides fellow explorers."),
+
+    (4, 4, 'Favorite RPG Games', "Embark on an epic quest into the captivating world of role-playing games (RPGs). In this discussion, we'll delve into the heart of our favorite RPG titles, exploring the intricate tapestry of storytelling, character development, and immersive gameplay. Share your most memorable gaming experiences, discuss the evolution of RPG mechanics, and unravel the magic behind the captivating storylines. Whether you're a veteran tabletop gamer or a digital adventurer, this forum provides a space to celebrate the rich diversity of RPG experiences that have captured our imaginations."),
+
+    (5, 5, 'High-Protein Recipes', "Indulge your culinary creativity with a curated collection of high-protein recipes designed to nourish and delight. From energizing breakfasts to savory dinners, this forum is a haven for culinary enthusiasts seeking to infuse their meals with protein-packed goodness. Share your go-to recipes, cooking techniques, and tips for crafting meals that are both nutritious and delicious. Whether you're a fitness enthusiast focused on muscle building or someone simply looking to add more protein to your diet, let's ins... to be continued in the next post");
+
+
 
 -- Add dummy tags
 INSERT INTO tags (tag_name, post_id) VALUES
@@ -63,7 +69,12 @@ INSERT INTO tags (tag_name, post_id) VALUES
 -- Add dummy comments
 INSERT INTO replies (user_id, post_id, content) VALUES
     (2, 1, "Great tips! Responsive design is crucial in today\'s web development."),
+    (3, 1, "I\'m a beginner in web development. Any tips for getting started?"),
+    (4, 1, "I\'m a web developer with 5 years of experience. Happy to help!"),
     (5, 2, "I love experimenting with watercolor. Can\'t wait to share my artworks!"),
-    (2, 3, "Southeast Asia is on my bucket list! Any specific countries you recommend?"),
-    (2, 4, "Have you tried the latest RPG release? It\'s amazing!"),
-    (2, 5, "That protein-packed recipe looks delicious! Going to try it this weekend.");
+    (4, 3, "Southeast Asia is on my bucket list! Any specific countries you recommend?"),
+    (1, 4, "Have you tried the latest RPG release? It\'s amazing!"),
+    (1, 5, "URGENT: I need to increase my protein intake. Any quick and easy recipes?"),
+    (2, 5, "I\'m a vegetarian. Any plant-based protein recipes?"),
+    (3, 5, "That protein-packed recipe looks delicious! Going to try it this weekend.");
+

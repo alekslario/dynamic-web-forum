@@ -7,9 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Results</title>
     <link rel="stylesheet" href="/styles.css" />
+    <script src="js/check-login.js"></script>
   </head>
   <body>
+    <menu>
+      <ul class="topnav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about">About Forum</a></li>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/add_post">Add Post</a></li>
+        <li><a href="/search_post">Search Post</a></li>
+        <li><a href="/topics">Topics</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login" id="loginButton">Log in</a></li>
+      </ul>
+    </menu>
     <div class="container">
+      <a href="/search_post">Back to Search</a>
       <h1>Search Results for "<%= query %>"</h1>
 
       <% if (posts.length > 0) { %>
@@ -27,8 +42,10 @@
       <% } else { %>
       <p>No results found.</p>
       <% } %>
-
-      <a href="/">Back to Home</a>
     </div>
+    <footer>
+      <!-- Your footer content goes here -->
+      &copy; Very important Forum
+    </footer>
   </body>
 </html>
