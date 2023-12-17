@@ -19,8 +19,6 @@ NOTE: if you want to run it on any Windows machine you might need to use
 `mysql2` package (both `mysql2` and `mysql` are in package.json) also change the
 variable `local` to `true` (in index.js).
 
-![Screenshot 2023-12-17 012254](https://github.com/alekslario/dynamic-web-forum/assets/29345608/f8375bf3-6c3f-4d41-9d48-76c7310d80e5)
-
 
 
 All links are on the main page. To add a post, you must first register. After registering, go to 'Topics' and join any topic. Once you have joined a topic, you can post under that topic. To join topics, click on 'Topics,' then choose a topic you like. Once the topic details page is loaded, fill out the form to join.
