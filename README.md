@@ -21,4 +21,4 @@ variable `local` to `true` (in index.js).
 
 
 
-All links are on the main page. To add a post, you must first register. After registering, go to 'Topics' and join any topic. Once you have joined a topic, you can post under that topic. To join topics, click on 'Topics,' then choose a topic you like. Once the topic details page is loaded, fill out the form to join.
+All links are on the main page. To add a post, you must first register. After registering, go to 'Topics' and join any topic. Once you have joined a topic, you can post under that topic. To join topics, click on 'Topics,' then choose a topic you like. Once the topic details page is loaded, press `join` button.
