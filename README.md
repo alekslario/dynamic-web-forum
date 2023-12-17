@@ -6,6 +6,7 @@ You might need to change the password and user in the `init.sh`, in that case do
 Then, assuming Node is installed on the server, run `npm i` followed by `node index.js`
 
 An alternative setup:
+
 CREATE DATABASE forum;
 USE forum;
 source create_db.sql
