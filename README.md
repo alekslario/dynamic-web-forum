@@ -8,8 +8,11 @@ Then, assuming Node is installed on the server, run `npm i` followed by `node in
 An alternative setup:
 
 CREATE DATABASE forum;
+
 USE forum;
+
 source create_db.sql
+
 create_db .sql will add tables and inject data (by calling insert_data.sql)
 
 NOTE: if you want to run it on any Windows machine you might need to use
