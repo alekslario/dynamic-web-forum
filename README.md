@@ -14,6 +14,7 @@ create_db .sql will add tables and inject data (by calling insert_data.sql)
 NOTE: if you want to run it on any Windows machine you might need to use
 `mysql2` package (both `mysql2` and `mysql` are in package.json) also change the
 variable `local` to `true` (in index.js).
+
 ![Screenshot 2023-12-17 012254](https://github.com/alekslario/dynamic-web-forum/assets/29345608/f8375bf3-6c3f-4d41-9d48-76c7310d80e5)
 
 
