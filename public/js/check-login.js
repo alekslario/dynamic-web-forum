@@ -31,7 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // trigger logout callback
   }
   loginButton.addEventListener("click", function () {
-    fetch("/logout_callback")
+    const possibleUrl = window.location.href;
+    const url = possibleUrl.includes("localhost")
+      ? "/logout"
+      : "https://www.doc.gold.ac.uk/usr/454/logout";
+    fetch(url)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

@@ -177,7 +177,7 @@ module.exports = function (app, shopData, baseUrl) {
   app.get("/login", function (req, res) {
     res.render("login.ejs");
   });
-  app.get("/logout_callback", function (req, res) {
+  app.get("/logout", function (req, res) {
     res.clearCookie("userToken");
     res.redirect(baseUrl);
   });
